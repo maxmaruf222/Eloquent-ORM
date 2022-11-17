@@ -16,3 +16,19 @@ Route::get('/hasOne', function () {
         'hasOne-Result____'=>$users,
     ];
 });
+
+// belongsTo
+use App\Models\Phone;
+Route::get('/belongsTo', function(){
+    //Normal Result
+    $all = Phone::all();
+
+    //belongsTo Result
+    $belongsTo = Phone::with('user')->get();
+
+    return [
+        '___Normal-Result___'=>$all,
+        '___belongsTo-Result___'=>$belongsTo
+    ];
+
+});
