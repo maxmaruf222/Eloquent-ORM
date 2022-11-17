@@ -14,4 +14,12 @@ class User extends Model
         return $this->hasOne(Phone::class, 'user_id');
         //user_id is foreign key
     }
+
+    /**
+     * Get the village for the user.
+     */
+    public function village()
+    {
+        return $this->hasMany(village::class, 'user_id');
+    }
 }

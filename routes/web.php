@@ -32,3 +32,16 @@ Route::get('/belongsTo', function(){
     ];
 
 });
+
+//hasMany
+Route::get('/hasMany', function(){
+    //Normal Result
+    $all = User::all();
+
+    //hasMany Result
+    $hasMany = User::with('village')->get();
+    return [
+        '___Normal-Result___'=>$all,
+        '___hasMany-Result___'=>$hasMany
+    ];
+});
