@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Mechanic;
 use Illuminate\Support\Facades\Route;
 
 //--has one
@@ -43,5 +44,18 @@ Route::get('/hasMany', function(){
     return [
         '___Normal-Result___'=>$all,
         '___hasMany-Result___'=>$hasMany
+    ];
+});
+
+// has many through 
+Route::get('hasManyThrough', function(){
+    
+    $all = Mechanic::all() ; 
+
+
+    $hasManyThrough =Mechanic::with('carOwner')->get();
+    return [
+        '___Normal-Result___'=>$all,
+        '_____hasManyThrough-Result___'=>$hasManyThrough
     ];
 });
