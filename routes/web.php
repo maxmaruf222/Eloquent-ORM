@@ -53,9 +53,22 @@ Route::get('hasManyThrough', function(){
     $all = Mechanic::all() ; 
 
 
-    $hasManyThrough =Mechanic::with('carOwner')->get();
+    $hasManyThrough =Mechanic::with('ownerCar')->get();
     return [
         '___Normal-Result___'=>$all,
         '_____hasManyThrough-Result___'=>$hasManyThrough
+    ];
+});
+
+// has one through 
+Route::get('hasOneThrough', function(){
+    
+    $all = Mechanic::all() ; 
+
+
+    $hasOneThrough =Mechanic::with('carOwner')->get();
+    return [
+        '___Normal-Result___'=>$all,
+        '_____hasOneThrough-Result___'=>$hasOneThrough
     ];
 });
