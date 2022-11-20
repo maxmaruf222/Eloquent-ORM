@@ -72,3 +72,17 @@ Route::get('hasOneThrough', function(){
         '_____hasOneThrough-Result___'=>$hasOneThrough
     ];
 });
+
+
+// many to many
+Route::get('manyTomany', function(){
+    
+    $all = User::all(); 
+
+
+    $manyTomany =User::with('roles')->get();
+    return [
+        '___Normal-Result___'=>$all,
+        '_____hasOneThrough-Result___'=>$manyTomany
+    ];
+});

@@ -22,4 +22,11 @@ class User extends Model
     {
         return $this->hasMany(village::class, 'user_id');
     }
+
+
+    //crate many to many method
+    public function roles()
+    {
+        return $this->belongsToMany(Role::class);
+    }
 }
