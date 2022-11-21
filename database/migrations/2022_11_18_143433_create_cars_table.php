@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('model');
             $table->unsignedBigInteger('mechanic_id');
+            $table->timestamps();
         });
     }
 
