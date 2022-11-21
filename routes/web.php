@@ -3,6 +3,7 @@
 use App\Models\Mechanic;
 use Illuminate\Support\Facades\Route;
 
+
 //--has one
 use App\Models\User;
 Route::get('/hasOne', function () {
@@ -85,4 +86,12 @@ Route::get('manyTomany', function(){
         '___Normal-Result___'=>$all,
         '_____hasOneThrough-Result___'=>$manyTomany
     ];
+});
+
+
+// Accessors & Mutators 
+Route::get('/mutator', function(){
+    $data = User::all();
+
+    return $data;
 });

@@ -4,11 +4,16 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Casts\Attribute;
+use Illuminate\Support\Str;
 
 class User extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'name'
+    ];
 
     // has one
     public function phone()
@@ -30,5 +35,22 @@ class User extends Model
     public function roles()
     {
         return $this->belongsToMany(Role::class);
+    }
+
+
+
+
+    // Accessors & Mutators 
+    /**
+     * Get the user's name.
+     *
+     * @return \Illuminate\Database\Eloquent\Casts\Attribute
+     */
+    protected function Name(): Attribute
+    {
+        return Attribute::make(
+            get: fn ($value) => Str::upper($value),
+            set: fn ($value) => Str::lower($value),
+        );
     }
 }
