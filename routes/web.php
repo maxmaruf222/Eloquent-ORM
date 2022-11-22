@@ -95,3 +95,11 @@ Route::get('/mutator', function(){
 
     return $data;
 });
+// Accessors & appends 
+Route::get('/accessor', function(){
+    $data = Phone::all();
+
+    return $data;
+});
+
+
